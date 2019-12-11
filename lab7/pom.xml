@@ -10,15 +10,14 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
 
-
+        <jeromq.version>0.5.1</jeromq.version>
     </properties>
     <dependencies>
 
         <dependency>
             <groupId>org.zeromq</groupId>
             <artifactId>jeromq</artifactId>
-            <version>0.5.1-SNAPSHOT</version>
+            <version>${jeromq.version}</version>
         </dependency>
-
     </dependencies>
 </project>
