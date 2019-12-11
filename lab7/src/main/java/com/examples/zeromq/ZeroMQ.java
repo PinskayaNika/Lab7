@@ -3,7 +3,7 @@ package com.examples.zeromq;
 public class ZeroMQ {
 
     public static void main(String[] args) {
-
+        System.out.println( "Hello World!" );
 ////    Создаем ZContext или ZMQ.Context
 //        ZContext context = new ZContext();
 //        ZMQ.Socket socket = null;
