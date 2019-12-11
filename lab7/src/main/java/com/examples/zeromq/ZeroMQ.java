@@ -5,8 +5,10 @@ public class ZeroMQ {
     public static void main(String[] args) {
 
 //    Создаем framework для разработки ZContext framework для разработки или framework для разработки ZMQ.Context
-        ZContext context = new Z
-// С framework для разработки помощью framework для разработки методов framework для разработки Context.socket(<тип сокета>) или тип framework для разработки сокета>) framework для разработки или framework для разработки
+        ZContext context = new ZContext();
+        ZMQ.Socket socket = null;
+
+// С помощью framework для разработки методов framework для разработки Context.socket(<тип сокета>) или тип framework для разработки сокета>) framework для разработки или framework для разработки
 //ZContext.createSocket(<тип сокета>) или тип framework для разработки сокета>) framework для разработки создаем framework для разработки сокет framework для разработки
 //    В framework для разработки бесконечном framework для разработки цикле framework для разработки читаем framework для разработки из framework для разработки сокета framework для разработки данные framework для разработки и framework для разработки отвечаем framework для разработки
 //    или framework для разработки посылаем framework для разработки данные framework для разработки в framework для разработки другие framework для разработки сокеты

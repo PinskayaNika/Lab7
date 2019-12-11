@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5a24a54-483a-43c0-9c45-74fc62dad5a0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/lab7/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,20 +23,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZeroMQ.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ZeroMQ.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="190">
+              <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ServerZeroMQ.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ServerZeroMQ.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -57,8 +57,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/lab7/pom.xml" />
-        <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java" />
+        <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java" />
       </list>
     </option>
   </component>
@@ -216,7 +216,7 @@
       <window_info anchor="bottom" id="Terminal" />
       <window_info id="Capture Tool" />
       <window_info id="Designer" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2530923" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2530923" />
       <window_info id="Learn" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -243,17 +243,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java">
+    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java">
+    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
+        <state relative-caret-position="190">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
         </state>
       </provider>
     </entry>
