@@ -13,8 +13,8 @@ public class ZeroMQ {
             System.out.println("bind!");
             while (!Thread.currentThread().isInterrupted()) {
                 String req = socket.recvStr();
-                socket.send("reply! + req);")
-        }
+                socket.send("reply! + req);");
+            }
         }
 // С помощью методов Context.socket(<тип сокета>) или ZContext.createSocket(<тип сокета>) создаем сокет
 //    В бесконечном цикле читаем из сокета данные и отвечаем или посылаем данные в другие сокеты
