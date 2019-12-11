@@ -19,10 +19,6 @@
             <artifactId>jeromq</artifactId>
             <version>0.5.1</version>
         </dependency>
-        <dependency>
-            <groupId>org.zeromq</groupId>
-            <artifactId>jeromq</artifactId>
-            <version>${jeromq.version}</version>
-        </dependency>
+        
     </dependencies>
 </project>
