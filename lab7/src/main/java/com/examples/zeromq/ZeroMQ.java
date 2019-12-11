@@ -8,6 +8,14 @@ public class ZeroMQ {
         ZContext context = new ZContext();
         ZMQ.Socket socket = null;
 
+        try {
+            socket.bind("tcp://localhost:5555");
+            System.out.println("bind!");
+            while (!Thread.currentThread().isInterrupted()) {
+                String req = socket.recvStr();
+                socket.send("reply! + req);")
+        }
+        }
 // С помощью методов Context.socket(<тип сокета>) или ZContext.createSocket(<тип сокета>) создаем сокет
 //    В бесконечном цикле читаем из сокета данные и отвечаем или посылаем данные в другие сокеты
 //    Посылать можно набор байтов, строку и сообщение Zmsg(набор фреймов)
