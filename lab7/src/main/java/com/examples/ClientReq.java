@@ -7,7 +7,9 @@ import org.zeromq.ZMQ;
 public class ClientReq {
     public static void main(String[] args) {
         ZContext context = new ZContext();
-        ZMQ.Socket socket = null;
+        ZMQ.Socket socket = context.createSocket(SocketType.DEALER
+        client.setHWM(0));
+        clirnt.connect()
         try {
             System.out.println("connect");
             socket = context.createSocket(SocketType.REQ);
