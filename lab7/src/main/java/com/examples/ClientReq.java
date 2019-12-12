@@ -8,8 +8,8 @@ public class ClientReq {
     public static void main(String[] args) {
         ZContext context = new ZContext();
         ZMQ.Socket socket = context.createSocket(SocketType.DEALER);
-        client.setHWM(0);
-        client.connect();
+        socket.setHWM(0);
+        socket.connect(FRON);
         try {
             System.out.println("connect");
             socket = context.createSocket(SocketType.REQ);
