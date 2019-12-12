@@ -1,5 +1,8 @@
 package com.examples;
 
+import org.zeromq.SocketType;
+import org.zeromq.ZMQ;
+
 public class ClientReq {
     public static void main(String[] args) {
         ZContext context = new ZContext();
