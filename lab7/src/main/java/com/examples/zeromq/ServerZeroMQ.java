@@ -1,5 +1,8 @@
 package com.examples.zeromq;
 
+import org.zeromq.ZContext;
+import org.zeromq.ZMQ;
+
 public class ServerZeroMQ {
     public static void main(String[] args) {
 

@@ -1,6 +1,7 @@
 package com.examples;
 
 import org.zeromq.SocketType;
+import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
 public class ClientReq {
@@ -12,7 +13,7 @@ public class ClientReq {
             socket = context.createSocket(SocketType.REQ);
             socket.connect("tcp://localhost:5555");
             for (int i = 0; i < 10; i++) {
-                socket.sendd("request" + i, 0);
+                socket.send("request" + i, 0);
                 String reply = socket.recvStr();
                 System.out.println("reply" + i + " result=" + reply);
             }
