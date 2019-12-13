@@ -8,11 +8,14 @@ import org.zeromq.ZMQ;
 // После подключения с определнным интервалом времени высылает сообщение NOTIFY в котором сообщает интервал хранимых значений.
 // Также принимает из сокета два вида команд — на изменение ячейки кэша и на извлечение ячейки.
 public class CacheStore {
-    ZMQ.Context context = ZMQ.context(1);
 
-    //Socket to talk to server
-    ZMQ.Socket requester = context.createSocket(SocketType.DEALER);
-    requester.connect("tcp://localhost:5559");
+    public static void  main (String[] arg) {
 
+        ZMQ.Context context = ZMQ.context(1);
 
+        //Socket to talk to server
+        ZMQ.Socket requester = context.createSocket(SocketType.DEALER);
+        requester.connect("tcp://localhost:5559");
+
+    }
 }
