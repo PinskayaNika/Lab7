@@ -24,7 +24,7 @@ public class CacheStore {
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);
             backendSocket.connect("tcp://localhost:5559");
-            System.out.println("launch and connect");
+            //System.out.println("launch and connect");
 
         } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
