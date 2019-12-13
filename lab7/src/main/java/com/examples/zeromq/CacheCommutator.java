@@ -27,7 +27,7 @@ public class CacheCommutator {
     public void setTime(long time) {
         this.time = time;
     }
-    
+
     public boolean isIntersect(String value) {
         int val = Integer.parseInt(value);
         int left = Integer.parseInt(leftBound);
