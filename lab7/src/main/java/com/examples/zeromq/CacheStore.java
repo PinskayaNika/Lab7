@@ -11,7 +11,8 @@ public class CacheStore {
     ZMQ.Context context = ZMQ.context(1);
 
     //Socket to talk to server
-    ZMQ.Socket requester = context.socket(SocketType.DEALER);
-    requester.connect("tcp")
+    ZMQ.Socket requester = context.createSocket(SocketType.DEALER);
+    requester.connect("tcp://localhost:5559");
+
 
 }
