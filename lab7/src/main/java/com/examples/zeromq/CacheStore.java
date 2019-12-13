@@ -18,6 +18,8 @@ public class CacheStore {
     public static void  main (String[] arg) {
 
         Scanner in = new Scanner(System.in);
+        
+
         try {
             ZContext context = new ZContext(1);
 
@@ -35,7 +37,7 @@ public class CacheStore {
                 //apply state updates from main thread
                 items.poll(1);
                 if (System.currentTimeMillis() - time > 5000) {
-                    
+
                 }
             }
 
