@@ -48,8 +48,11 @@ public class CacheStore {
                 if (System.currentTimeMillis() - time > 5000) {
                     ZMsg messageTime = new ZMsg();
                     messageTime.addLast(
-                            
+                            "Heartbleed" + DELIMITER
+                                    + Integer.toString(leftBound) + DELIMITER +
+                                    + Integer.toString(rightBound)
                     );
+                    messageTime.send(backendSocket);
                 }
             }
 
