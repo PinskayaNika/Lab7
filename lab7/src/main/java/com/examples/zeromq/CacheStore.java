@@ -19,7 +19,7 @@ public class CacheStore {
     private static final String EMPTY_FRAME = "";
     private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
 
-    
+
     public static void  main (String[] arg) {
 
         Scanner in = new Scanner(System.in);
@@ -57,6 +57,8 @@ public class CacheStore {
                     );
                     messageTime.send(backendSocket);
                 }
+
+                if (items)
             }
 
 
