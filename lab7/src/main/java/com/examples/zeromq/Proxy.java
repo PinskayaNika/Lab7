@@ -27,8 +27,8 @@ public class Proxy {
         items.register(frontend, ZMQ.Poller.POLLIN);
         items.register(backend, ZMQ.Poller.POLLIN);
 
-            Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
-            
+        Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
+
 
 
 
