@@ -15,9 +15,9 @@ public class Proxy {
 
         frontend.setHWM(0);
         backend.setHWM(0);
-        frontend.bind("tcp://*:5559");
-        backend.bind("tcp://*5560");
-        
+        frontend.bind("tcp://localhost:5559");
+        backend.bind("tcp://localhost:5560");
+
 
 
 
