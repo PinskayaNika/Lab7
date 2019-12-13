@@ -1,9 +1,6 @@
 package com.examples.zeromq;
 
-import org.zeromq.SocketType;
-import org.zeromq.ZContext;
-import org.zeromq.ZFrame;
-import org.zeromq.ZMQ;
+import org.zeromq.*;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -49,7 +46,12 @@ public class Proxy {
                 time = System.currentTimeMillis();
 
             }
-            if(items.pollin(0))
+            if(items.pollin(0)) {
+                ZMsg message = ZMsg.recvMsg(frontend);
+                if (message == null) {
+                    break;
+                }
+            }
         }
 
 
