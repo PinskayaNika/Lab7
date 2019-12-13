@@ -58,7 +58,7 @@ public class CacheStore {
                     messageTime.send(backendSocket);
                 }
 
-                if (items)
+                if (items.pollin(BACKEND))
             }
 
 
