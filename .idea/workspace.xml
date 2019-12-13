@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5a24a54-483a-43c0-9c45-74fc62dad5a0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java" afterDir="false" />
-    </list>
+    <list default="true" id="f5a24a54-483a-43c0-9c45-74fc62dad5a0" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/lab7/target/" />
     <ignored path="$PROJECT_DIR$/chatexample/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -48,7 +46,7 @@
       <file leaf-file-name="ClientReq.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
+            <state relative-caret-position="456">
               <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -87,7 +85,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="650" />
     <option name="y" value="25" />
     <option name="width" value="713" />
@@ -226,7 +224,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="650" y="25" width="713" height="1046" extended-state="0" />
+    <frame x="650" y="25" width="713" height="1046" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -408,7 +406,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
+        <state relative-caret-position="456">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
           <folding>
             <element signature="imports" expanded="true" />
