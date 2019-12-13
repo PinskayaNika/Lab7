@@ -1,9 +1,6 @@
 package com.examples;
 
-import org.zeromq.SocketType;
-import org.zeromq.ZContext;
-import org.zeromq.ZMQ;
-import org.zeromq.ZMsg;
+import org.zeromq.*;
 
 import java.util.Scanner;
 
@@ -54,7 +51,8 @@ public class ClientReq {
                 String reply = socket.recvStr();
                 System.out.println("reply" + i + " result=" + reply);
             }
-        } finally {
+        } catch (ZMQException ex){
+            System.out.println(E);
             context.destroySocket(socket);
             context.destroy();
         }
