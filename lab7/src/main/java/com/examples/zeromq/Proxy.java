@@ -47,7 +47,9 @@ public class Proxy {
                     }
                 }
                 time = System.currentTimeMillis();
+
             }
+            if(items.pollin(FRONTEND_MESSAGE))
         }
 
 
