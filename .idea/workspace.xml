@@ -43,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientReq.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ClientReq.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
@@ -51,6 +51,15 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CacheStore.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab7/src/main/java/CacheStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -224,7 +233,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="650" y="25" width="713" height="1046" extended-state="1" />
+    <frame x="650" y="25" width="713" height="1046" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -411,6 +420,13 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/CacheStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
