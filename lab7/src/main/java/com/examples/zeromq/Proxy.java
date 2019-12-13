@@ -9,6 +9,7 @@ import java.util.Map;
 public class Proxy {
 
     private static final int EPSILON_TIME = 5000;
+    private static final String EMPTY_FRAME = "";
     private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
     private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
     public static void main(String[] args) {
@@ -50,6 +51,17 @@ public class Proxy {
                 ZMsg message = ZMsg.recvMsg(frontend);
                 if (message == null) {
                     break;
+                }
+                System.out.println("GOT MSG ->" + message);
+
+                if (commutatorMap.isEmpty()) {
+                    ZMsg errorMessage = new ZMsg();
+                    errorMessage.add(message.getFirst());
+                    errorMessage.add("");
+                    errorMessage.add("NO CURRENT CACHE");
+                    errorMessage.send(frontend);
+                } else {
+                    String[] data = message.getLast().toString().split(D)
                 }
             }
         }
