@@ -8,6 +8,8 @@ import java.util.Scanner;
 // Читает команды из консоли и отправляет их в прокси.
 public class ClientReq {
 
+    private static final String GET_COMMAND = "GET";
+    private static final String PUT_COMMAND = "PUT";
     private static final String ERROR_MESSAGE = "There was an error with the client. Please retry.";
 
     public static void main(String[] args) {

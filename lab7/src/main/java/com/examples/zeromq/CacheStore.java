@@ -17,6 +17,8 @@ public class CacheStore {
     private static final int EPSILON_TIME = 5000;
     private static final String DELIMITER = " ";
     private static final String EMPTY_FRAME = "";
+    private static final String GET_COMMAND = "GET";
+    private static final String PUT_COMMAND = "PUT";
     private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
 
 
@@ -62,7 +64,22 @@ public class CacheStore {
                     ZMsg message = ZMsg.recvMsg(backendSocket);
                     System.out.println("GOT MESSAGE ->" + message.toString());
                     ZFrame content = message.getLast();
-                    String[] contentArr = content.toString().split(DELIMITER)
+                    String[] contentArr = content.toString().split(DELIMITER);
+
+                    if (contentArr[0].equals(GET_COMMAND)) {
+                        int pos = Integer.parseInt(contentArr[1]);
+                        String value = cache.get(pos);
+                        message.pollLast();
+                        message.addLast(value);
+                        message.send(backendSocket);
+                    }
+
+                    if (contentArr[0].equals(PUT_COMMAND)) {
+                        int pos = Integer.parseInt(contentArr[1]);
+                        String swapString = contentArr[2];
+                        cache.put(pos, swapString);
+                        message.send(backendSocket);
+                    }
                 }
             }
 
