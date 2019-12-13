@@ -34,7 +34,7 @@ public class CacheStore {
         }
 
         try {
-            ZContext context = new ZContext(1);
+            ZContext context = new ZContext();
 
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);

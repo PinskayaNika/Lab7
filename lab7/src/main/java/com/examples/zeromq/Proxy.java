@@ -1,5 +1,6 @@
 package com.examples.zeromq;
 
+import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
@@ -9,7 +10,10 @@ public class Proxy {
 //    Создаем ZContext или ZMQ.Context
         try {
         ZContext context = new ZContext();
-        ZMQ.Socket socket = null;
+        ZMQ.Socket frontend = context.createSocket(SocketType.ROUTER);
+        ZMQ.Socket backend = context.createSocket(SocketType.ROUTER);
+
+
 
 
             socket.bind("tcp://localhost:5555");
