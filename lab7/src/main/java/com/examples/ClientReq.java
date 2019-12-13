@@ -1,4 +1,4 @@
-package com.examples;
+package com.examples.zeromq;
 
 import org.zeromq.*;
 
