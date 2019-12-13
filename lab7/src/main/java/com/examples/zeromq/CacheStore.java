@@ -29,7 +29,13 @@ public class CacheStore {
             //Initialize poll set
             ZMQ.Poller items = context.createPoller(1);
             items.register(backendSocket, ZMQ.Poller.POLLIN);
-            
+            long time = System.currentTimeMillis();
+            while (!Thread.currentThread().isInterrupted()) {
+
+                //apply state updates from main thread
+                items.poll(1);
+                if (System.currentTimeMillis() - time > E
+            }
 
 
 

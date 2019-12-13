@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5a24a54-483a-43c0-9c45-74fc62dad5a0" name="Default" comment="" />
+    <list default="true" id="f5a24a54-483a-43c0-9c45-74fc62dad5a0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/lab7/target/" />
     <ignored path="$PROJECT_DIR$/chatexample/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -46,8 +48,8 @@
       <file leaf-file-name="CacheStore.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+            <state relative-caret-position="147">
+              <caret line="36" column="57" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -267,7 +269,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="650" y="25" width="1060" height="530" extended-state="0" />
+    <frame x="0" y="25" width="1060" height="530" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -470,8 +472,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+        <state relative-caret-position="147">
+          <caret line="36" column="57" lean-forward="true" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
