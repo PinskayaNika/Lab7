@@ -96,20 +96,23 @@ public class Proxy {
             }
 
             if (items.pollin(1)) {        //BACKEND_MESSAGE
-                ZMsg msg =     ZMsg message = ZMsg.recvMsg(frontend);
-                if (message == null) {
+                ZMsg msg = ZMsg.recvMsg(frontend);
+                if (msg == null) {
                     break;
                 }
-                System.out.println("GOT MSG ->" + message);
+                //System.out.println("GOT MSG ->" + message);
 
-                if (commutatorMap.isEmpty()) {
-                    ZMsg errorMessage = new ZMsg();
-                    errorMessage.add(message.getFirst());
-                    errorMessage.add("");
-                    errorMessage.add("NO CURRENT CACHE");
-                    errorMessage.send(frontend);
-                } else {
-                    String[] data = message.getLast().toString().split(DELIMITER);
+                if (msg.getLast().toString().contains("Heartbleed")) {
+                if (!commutatorMap.containsKey(msg.getFirst())) {
+                    ZFrame data = msg.getLast();
+                    String[] fields = data.toString().split(DELIMITER);
+                    CacheCommutator tmp = new CacheCommutator(
+                            fields[1],
+                            fields[2],
+                            System.currentTimeMillis()
+                    );
+                    commutatorMap.put(msg.getFirst().duplicate(), tmp);
+                    System.out.println("New cache -> " + msg.getFirst() + );
                     if (data[0].equals(GET_COMMAND)) {
                         for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                             if (map.getValue().isIntersect(data[1])) {
