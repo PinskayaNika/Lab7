@@ -85,7 +85,11 @@ public class Proxy {
                                 }
                             }
                         } else {
-                            
+                            ZMsg errorMessage = new ZMsg();
+                            errorMessage.add(message.getFirst());
+                            errorMessage.add("");
+                            errorMessage.add("ERROR MESSAGE");
+                            errorMessage.send(frontend);
                         }
                     }
                 }
