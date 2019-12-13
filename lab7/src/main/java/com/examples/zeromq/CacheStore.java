@@ -5,6 +5,8 @@ import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 import org.zeromq.ZMQException;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 //- Хранилище части распределенного кэша.
@@ -15,7 +17,7 @@ public class CacheStore {
 
     private static int leftBound;
     private static int rightBound;
-    private static int EPSILON_TIME
+    private static int EPSILON_TIME = 5000;
     private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
 
     public static void  main (String[] arg) {
@@ -23,6 +25,11 @@ public class CacheStore {
         Scanner in = new Scanner(System.in);
         leftBound = in.nextInt();
         rightBound = in.nextInt();
+
+        Map<Integer, String> cache = new HashMap<>();
+        for (int i = leftBound; i <= rightBound; i++) {
+            cache.put(i, Integer.toString(i));
+        }
 
         try {
             ZContext context = new ZContext(1);
