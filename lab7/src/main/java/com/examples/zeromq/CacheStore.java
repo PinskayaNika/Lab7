@@ -34,7 +34,9 @@ public class CacheStore {
 
                 //apply state updates from main thread
                 items.poll(1);
-                if (System.currentTimeMillis() - time > E
+                if (System.currentTimeMillis() - time > 5000) {
+                    
+                }
             }
 
 
