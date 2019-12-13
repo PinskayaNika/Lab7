@@ -67,8 +67,21 @@ public class Proxy {
                     String[] data = message.getLast().toString().split(DELIMITER);
                     if (data[0].equals(GET_COMMAND)) {
                         for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-                            
+                            if (map.getValue().isIntersect(data[1])) {
+                                ZFrame cacheFrame = map.getKey().duplicate();
+                                message.addFirst(cacheFrame);
+                                message.send(backend);
+                            }
                         }
+                    } else {
+                        if (data[0].equals(PUT_COMMAND)) {
+                            for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+                                if (map.getValue().isIntersect(data[1])) {
+                                    ZFrame cacheFrame = map.getKey().duplicate();
+                                    message.addFirst(cacheFrame);
+                                    message.send(backend);
+                                }
+                            }
                     }
                 }
             }
