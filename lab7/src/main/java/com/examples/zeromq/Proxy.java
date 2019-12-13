@@ -2,7 +2,11 @@ package com.examples.zeromq;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
+import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Proxy {
     public static void main(String[] args) {
@@ -17,7 +21,14 @@ public class Proxy {
         backend.setHWM(0);
         frontend.bind("tcp://localhost:5559");
         backend.bind("tcp://localhost:5560");
-        
+
+        //Initialize poll set
+        ZMQ.Poller items = context.createPoller(2);
+        items.register(frontend, ZMQ.Poller.POLLIN);
+        items.register(backend, ZMQ.Poller.POLLIN);
+
+            Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
+            
 
 
 
