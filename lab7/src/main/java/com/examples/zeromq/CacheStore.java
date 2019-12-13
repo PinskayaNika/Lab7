@@ -14,9 +14,12 @@ public class CacheStore {
 
     private static int leftBound;
     private static int rightBound;
-    private static int EPSILON_TIME = 5000;
+    private static final int EPSILON_TIME = 5000;
+    private static final String DELIMITER = " ";
+    private static final String EMPTY_FRAME = "";
     private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
 
+    
     public static void  main (String[] arg) {
 
         Scanner in = new Scanner(System.in);
@@ -49,7 +52,7 @@ public class CacheStore {
                     ZMsg messageTime = new ZMsg();
                     messageTime.addLast(
                             "Heartbleed" + DELIMITER
-                                    + Integer.toString(leftBound) + DELIMITER +
+                                    + Integer.toString(leftBound) + DELIMITER
                                     + Integer.toString(rightBound)
                     );
                     messageTime.send(backendSocket);
