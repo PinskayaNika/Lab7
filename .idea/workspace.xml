@@ -201,7 +201,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.CacheStore">
+    <configuration name="CacheStore" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.CacheStore" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.ClientReq" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -275,9 +279,10 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="Maven.Unnamed" />
       <item itemvalue="Application.Proxy" />
       <item itemvalue="Application.Client" />
+      <item itemvalue="Maven.Unnamed" />
+      <item itemvalue="Application.CacheStore" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -538,7 +543,7 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>No facets are configured</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -586,7 +591,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>Maven: eu.neilalexander:jnacl:1.0.0</last-edited>
+          <last-edited />
           <splitter-proportions>
             <option name="proportions">
               <list>
