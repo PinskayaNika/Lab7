@@ -21,8 +21,15 @@ public class ClientReq {
             socket.setHWM(0);
             socket.connect("tcp://localhost:5555");
 
+            Scanner in = new Scanner(System.in);
+
             while (true) {
                 String message = in.nextLine();
+                if (message.equals("EXIT")) {
+                    break;
+            }
+            if (!message.contains(GET_COMMAND) && !message.contains(PUT_COMMAND)) {
+                    System.out.println("INCORRECT INPUT, you can use only get and put comands");
             }
 
 
