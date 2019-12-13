@@ -28,6 +28,12 @@ public class Proxy {
         items.register(backend, ZMQ.Poller.POLLIN);
 
         Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
+        long time = System.currentTimeMillis();
+
+        while (!Thread.currentThread().isInterrupted()) {
+            items.poll(1);
+            if (!commutatorMap.isEmpty() && System.currentTimeMillis())
+        }
 
 
 
