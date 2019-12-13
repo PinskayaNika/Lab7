@@ -66,7 +66,7 @@ public class Proxy {
                 } else {
                     String[] data = message.getLast().toString().split(DELIMITER);
                     if (data[0].equals(GET_COMMAND)) {
-                        for (Map.Entry <ZFrame, C)
+                        for (Map.Entry <ZFrame, CacheCommutator>)
                     }
                 }
             }
