@@ -15,7 +15,7 @@ public class Proxy {
     private static final String PUT_COMMAND = "PUT";
     private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
     private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
-    private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
+    private static final String ERROR_MESSAGE = "There was an error with a proxy. Please retry.";
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
