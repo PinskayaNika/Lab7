@@ -35,9 +35,9 @@ public class ClientReq {
             } else {
                 ZMsg res  = new ZMsg();
                 res.addString(message);
-                res.send(context);
+                res.send(socket);
 
-                ZMsg
+                ZMsg req = ZMsg.recvMsg(socket)
             }
 
 
