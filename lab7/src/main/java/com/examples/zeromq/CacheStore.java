@@ -18,7 +18,8 @@ public class CacheStore {
     public static void  main (String[] arg) {
 
         Scanner in = new Scanner(System.in);
-        
+        leftBound = in.nextInt();
+        rightBound = in.nextInt();
 
         try {
             ZContext context = new ZContext(1);
