@@ -39,7 +39,7 @@ public class Proxy {
             items.poll(1);
             if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > 5000 * 2) {
                 for (Iterator <Map.Entry <ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
-                    Map.Entry<ZFrame, C>
+                    Map.Entry<ZFrame, CacheCommutator>
                 }
             }
         }
