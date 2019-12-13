@@ -10,6 +10,7 @@ public class Proxy {
 
     private static final int EPSILON_TIME = 5000;
     private static final String EMPTY_FRAME = "";
+    private static final String DELIMITER = " ";
     private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
     private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
     public static void main(String[] args) {
@@ -61,7 +62,8 @@ public class Proxy {
                     errorMessage.add("NO CURRENT CACHE");
                     errorMessage.send(frontend);
                 } else {
-                    String[] data = message.getLast().toString().split(D)
+                    String[] data = message.getLast().toString().split(DELIMITER);
+                    if (data[0].equals(GET_COMMAND))
                 }
             }
         }
