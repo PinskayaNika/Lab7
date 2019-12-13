@@ -201,7 +201,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.CacheStore">
+  <component name="RunManager" selected="Application.Proxy">
     <configuration name="CacheStore" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.CacheStore" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
@@ -281,8 +281,8 @@
     <list>
       <item itemvalue="Application.Proxy" />
       <item itemvalue="Application.Client" />
-      <item itemvalue="Maven.Unnamed" />
       <item itemvalue="Application.CacheStore" />
+      <item itemvalue="Maven.Unnamed" />
     </list>
   </component>
   <component name="SvnConfiguration">
