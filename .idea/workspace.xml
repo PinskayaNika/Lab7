@@ -201,13 +201,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Proxy">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="CacheStore" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.CacheStore" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration name="Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.ClientReq" />
+      <option name="VM_PARAMETERS" value="lab7" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
     </configuration>
     <configuration name="Proxy" type="Application" factoryName="Application">
