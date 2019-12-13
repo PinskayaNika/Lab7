@@ -4,6 +4,8 @@ import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
+import static java.lang.System.in;
+
 public class ClientReq {
     public static void main(String[] args) {
 
@@ -19,9 +21,11 @@ public class ClientReq {
             socket.connect("tcp://localhost:5555");
 
             while (true) {
-                
+                String message = in.nextLine();
             }
 
+
+            }
             for (int i = 0; i < 10; i++) {
                 socket.send("request" + i, 0);
                 String reply = socket.recvStr();
