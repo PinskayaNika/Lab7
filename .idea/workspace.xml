@@ -203,7 +203,11 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Unnamed">
+  <component name="RunManager" selected="Application.Unnamed (1)">
+    <configuration name="Unnamed (1)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Cli" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    </configuration>
     <configuration name="Unnamed" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.Proxy" />
       <module name="lab7" />
@@ -275,6 +279,7 @@
     <list>
       <item itemvalue="Application.Unnamed" />
       <item itemvalue="Maven.Unnamed" />
+      <item itemvalue="Application.Unnamed (1)" />
     </list>
   </component>
   <component name="SvnConfiguration">
