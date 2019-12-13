@@ -43,6 +43,7 @@ public class Proxy {
 
                     if (Math.abs(entry.getValue().getTime() - time) > 5000 * 2) {
                         System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
+                        
                     }
                 }
             }
