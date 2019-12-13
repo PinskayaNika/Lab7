@@ -3,6 +3,7 @@ package com.examples;
 import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMsg;
 
 import java.util.Scanner;
 
@@ -31,6 +32,12 @@ public class ClientReq {
             }
             if (!message.contains(GET_COMMAND) && !message.contains(PUT_COMMAND)) {
                     System.out.println("INCORRECT INPUT, you can use only get and put comands");
+            } else {
+                ZMsg res  = new ZMsg();
+                res.addString(message);
+                res.send(context);
+
+                ZMsg
             }
 
 
