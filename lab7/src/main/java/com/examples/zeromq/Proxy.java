@@ -49,7 +49,7 @@ public class Proxy {
                 time = System.currentTimeMillis();
 
             }
-            if(items.pollin(FRONTEND_MESSAGE))
+            if(items.pollin(0))
         }
 
 
