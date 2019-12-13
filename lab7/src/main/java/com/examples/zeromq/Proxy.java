@@ -9,6 +9,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Proxy {
+
+    private static final int EPSILON_TIME = 5000;
+    private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
+    private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
@@ -32,7 +36,10 @@ public class Proxy {
 
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1);
-            if (!commutatorMap.isEmpty() && System.currentTimeMillis())
+            if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > 5000 * 2) {
+                
+
+            }
         }
 
 
