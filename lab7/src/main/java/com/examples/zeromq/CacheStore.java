@@ -12,8 +12,8 @@ import java.util.Scanner;
 // Также принимает из сокета два вида команд — на изменение ячейки кэша и на извлечение ячейки.
 public class CacheStore {
 
-    private static final String ERROR_MESSAGE = "There was an error with the client. Please retry.";
-    
+    private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
+
     public static void  main (String[] arg) {
 
         Scanner in = new Scanner(System.in);
