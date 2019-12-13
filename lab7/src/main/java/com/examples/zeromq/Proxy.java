@@ -11,6 +11,8 @@ public class Proxy {
     private static final int EPSILON_TIME = 5000;
     private static final String EMPTY_FRAME = "";
     private static final String DELIMITER = " ";
+    private static final String GET_COMMAND = "GET";
+    private static final String PUT_COMMAND = "PUT";
     private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
     private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
     public static void main(String[] args) {
@@ -63,7 +65,9 @@ public class Proxy {
                     errorMessage.send(frontend);
                 } else {
                     String[] data = message.getLast().toString().split(DELIMITER);
-                    if (data[0].equals(GET_COMMAND))
+                    if (data[0].equals(GET_COMMAND)) {
+                        
+                    }
                 }
             }
         }
