@@ -75,13 +75,18 @@ public class Proxy {
                         }
                     } else {
                         if (data[0].equals(PUT_COMMAND)) {
-                            for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                                 if (map.getValue().isIntersect(data[1])) {
+                                    ZMsg tmp = message.duplicate();
                                     ZFrame cacheFrame = map.getKey().duplicate();
-                                    message.addFirst(cacheFrame);
-                                    message.send(backend);
+                                    tmp.addFirst(cacheFrame);
+                                    System.out.println("PUT MSG ->" + tmp);
+                                    tmp.send(backend);
                                 }
                             }
+                        } else {
+                            
+                        }
                     }
                 }
             }
