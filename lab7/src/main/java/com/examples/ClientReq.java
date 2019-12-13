@@ -17,6 +17,11 @@ public class ClientReq {
             ZMQ.Socket socket = context.createSocket(SocketType.REQ);
             socket.setHWM(0);
             socket.connect("tcp://localhost:5555");
+
+            while (true) {
+                
+            }
+
             for (int i = 0; i < 10; i++) {
                 socket.send("request" + i, 0);
                 String reply = socket.recvStr();
