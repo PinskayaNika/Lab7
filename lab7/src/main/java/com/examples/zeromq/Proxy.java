@@ -112,7 +112,7 @@ public class Proxy {
                             System.currentTimeMillis()
                     );
                     commutatorMap.put(msg.getFirst().duplicate(), tmp);
-                    System.out.println("New cache -> " + msg.getFirst() + );
+                    System.out.println("New cache -> " + msg.getFirst() + " " + tmp.getLeftBound() + " " + tmp.getRightBound());
                     if (data[0].equals(GET_COMMAND)) {
                         for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                             if (map.getValue().isIntersect(data[1])) {
