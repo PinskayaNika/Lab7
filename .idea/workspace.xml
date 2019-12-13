@@ -34,8 +34,8 @@
       <file leaf-file-name="Proxy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-42">
-              <caret column="27" selection-start-column="27" selection-end-column="27" />
+            <state relative-caret-position="143">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +46,7 @@
       <file leaf-file-name="CacheStore.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
+            <state relative-caret-position="-76">
               <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -86,11 +86,11 @@
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ZeroMQ.java" />
         <option value="$PROJECT_DIR$/lab7/pom.xml" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ServerZeroMQ.java" />
-        <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/CacheStore.java" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/ClientReq.java" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/ClientReq.java" />
         <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java" />
+        <option value="$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java" />
       </list>
     </option>
   </component>
@@ -462,7 +462,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="-76">
           <caret line="8" column="41" lean-forward="true" selection-start-line="8" selection-start-column="41" selection-end-line="8" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -472,8 +472,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-42">
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
+        <state relative-caret-position="143">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
