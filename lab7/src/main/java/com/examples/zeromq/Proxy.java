@@ -51,11 +51,11 @@ public class Proxy {
 
             }
             if(items.pollin(0)) {        //FRONTEND_MESSAGE
-                ZMsg.recvMsg(frontend);
+                ZMsg message = ZMsg.recvMsg(backend);
                 if (message == null) {
                     break;
                 }
-                System.out.println("GOT MSG ->" + message);
+                //System.out.println("GOT MSG ->" + message);
 
                 if (commutatorMap.isEmpty()) {
                     ZMsg errorMessage = new ZMsg();
