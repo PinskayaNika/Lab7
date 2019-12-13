@@ -60,7 +60,9 @@ public class CacheStore {
 
                 if (items.pollin(0)) {
                     ZMsg message = ZMsg.recvMsg(backendSocket);
-                    System.
+                    System.out.println("GOT MESSAGE ->" + message.toString());
+                    ZFrame content = message.getLast();
+                    String[] contentArr = content.toString().split(DELIMITER)
                 }
             }
 
