@@ -13,6 +13,9 @@ import java.util.Scanner;
 // Также принимает из сокета два вида команд — на изменение ячейки кэша и на извлечение ячейки.
 public class CacheStore {
 
+    private static int leftBound;
+    private static int rightBound;
+    private static int EPSILON_TIME
     private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
 
     public static void  main (String[] arg) {
