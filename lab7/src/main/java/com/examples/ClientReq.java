@@ -7,6 +7,9 @@ import java.util.Scanner;
 //- Клиент. Подключается к центральному прокси.
 // Читает команды из консоли и отправляет их в прокси.
 public class ClientReq {
+
+    private static final String ERROR_MESSAGE = "There was an error with the client";
+    
     public static void main(String[] args) {
 
         ZContext context = new ZContext();
@@ -52,9 +55,10 @@ public class ClientReq {
                 System.out.println("reply" + i + " result=" + reply);
             }
         } catch (ZMQException ex){
-            System.out.println(E);
-            context.destroySocket(socket);
-            context.destroy();
+            System.out.println(ERROR_MESSAGE);
+            ex.printStackTrace();
+            //context.destroySocket(socket);
+            //context.destroy();
         }
     }
 }
