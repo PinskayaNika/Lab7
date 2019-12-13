@@ -6,6 +6,7 @@ import org.zeromq.ZFrame;
 import org.zeromq.ZMQ;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class Proxy {
@@ -37,7 +38,7 @@ public class Proxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1);
             if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > 5000 * 2) {
-                
+                for (Iterator <Map.Entry <ZFrame, CacheCommutator>> it = commutatorMap)
 
             }
         }
