@@ -15,6 +15,7 @@ public class Proxy {
     private static final String PUT_COMMAND = "PUT";
     private static final String  BACKEND_SOCKET = "tcp://localhost:5559";
     private static final String  FRONTEND_SOCKET = "tcp://localhost:5560";
+    private static final String ERROR_MESSAGE = "There was an error with the cache. Please retry.";
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
@@ -39,7 +40,7 @@ public class Proxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1);
             if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > 5000 * 2) {
-                for (Iterator <Map.Entry <ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
+                for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
                     Map.Entry<ZFrame, CacheCommutator> entry = it.next();
 
                     if (Math.abs(entry.getValue().getTime() - time) > 5000 * 2) {
@@ -50,7 +51,7 @@ public class Proxy {
                 time = System.currentTimeMillis();
 
             }
-            if(items.pollin(0)) {        //FRONTEND_MESSAGE
+            if (items.pollin(0)) {        //FRONTEND_MESSAGE
                 ZMsg message = ZMsg.recvMsg(backend);
                 if (message == null) {
                     break;
@@ -66,7 +67,7 @@ public class Proxy {
                 } else {
                     String[] data = message.getLast().toString().split(DELIMITER);
                     if (data[0].equals(GET_COMMAND)) {
-                        for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+                        for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                             if (map.getValue().isIntersect(data[1])) {
                                 ZFrame cacheFrame = map.getKey().duplicate();
                                 message.addFirst(cacheFrame);
@@ -116,54 +117,15 @@ public class Proxy {
                     } else {
                         commutatorMap.get(msg.getFirst().duplicate()).setTime(System.currentTimeMillis());
                     }
-                }else {
+                } else {
                     System.out.println("NO HEARTBEAT ->" + msg);
                     msg.pop();
                     msg.send(frontend);
-                    if (data[0].equals(GET_COMMAND)) {
-                        for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-                            if (map.getValue().isIntersect(data[1])) {
-                                ZFrame cacheFrame = map.getKey().duplicate();
-                                message.addFirst(cacheFrame);
-                                message.send(backend);
-                            }
-                        }
-                    } else {
-                        if (data[0].equals(PUT_COMMAND)) {
-                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-                                if (map.getValue().isIntersect(data[1])) {
-                                    ZMsg tmp = message.duplicate();
-                                    ZFrame cacheFrame = map.getKey().duplicate();
-                                    tmp.addFirst(cacheFrame);
-                                    System.out.println("PUT MSG ->" + tmp);
-                                    tmp.send(backend);
-                                }
-                            }
-                        } else {
-                            ZMsg errorMessage = new ZMsg();
-                            errorMessage.add(message.getFirst());
-                            errorMessage.add("");
-                            errorMessage.add("ERROR MESSAGE");
-                            errorMessage.send(frontend);
-                        }
-                    }
                 }
             }
-            }
         }
-
-
-
-
-
-
-            socket.bind("tcp://localhost:5555");
-            System.out.println("bind!");
-            while (!Thread.currentThread().isInterrupted()) {
-                String req = socket.recvStr();
-                socket.send("reply! + req);");
-            }
-        } finally {
+        } catch (ZMQException ex){
+            System.out.println("ERROR_MESSAGE");
             context.destroySocket(socket);
             context.destroy();
         }
