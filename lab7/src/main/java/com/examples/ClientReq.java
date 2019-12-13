@@ -29,32 +29,32 @@ public class ClientReq {
                 String message = in.nextLine();
                 if (message.equals("EXIT")) {
                     break;
-            }
-            if (!message.contains(GET_COMMAND) && !message.contains(PUT_COMMAND)) {
-                    System.out.println("INCORRECT INPUT, you can use only get and put comands");
-            } else {
-                ZMsg res  = new ZMsg();
-                res.addString(message);
-                res.send(socket);
-
-                ZMsg req = ZMsg.recvMsg(socket);
-                if(req == null) {
-                    break;
                 }
+                if (!message.contains(GET_COMMAND) && !message.contains(PUT_COMMAND)) {
+                    System.out.println("INCORRECT INPUT, you can use only get and put comands");
+                } else {
+                    ZMsg res = new ZMsg();
+                    res.addString(message);
+                    res.send(socket);
 
-                String s = req.popString();
-                System.out.println(s);
-                req.destroy();
+                    ZMsg req = ZMsg.recvMsg(socket);
+                    if (req == null) {
+                        break;
+                    }
+
+                    String s = req.popString();
+                    System.out.println(s);
+                    req.destroy();
+                }
             }
 
-
-            }
-            for (int i = 0; i < 10; i++) {
+            /*for (int i = 0; i < 10; i++) {
                 socket.send("request" + i, 0);
                 String reply = socket.recvStr();
                 System.out.println("reply" + i + " result=" + reply);
-            }
-        } catch (ZMQException ex){
+            }*/
+
+        } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
             ex.printStackTrace();
             //context.destroySocket(socket);
