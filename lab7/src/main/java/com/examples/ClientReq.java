@@ -37,7 +37,14 @@ public class ClientReq {
                 res.addString(message);
                 res.send(socket);
 
-                ZMsg req = ZMsg.recvMsg(socket)
+                ZMsg req = ZMsg.recvMsg(socket);
+                if(req == null) {
+                    break;
+                }
+
+                String s = req.popString();
+                System.out.println(s);
+                req.destroy();
             }
 
 
