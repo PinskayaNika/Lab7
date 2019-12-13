@@ -3,7 +3,7 @@ package com.examples.zeromq;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
-public class ServerZeroMQ {
+public class Proxy {
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
