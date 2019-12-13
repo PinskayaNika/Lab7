@@ -1,6 +1,7 @@
 package com.examples.zeromq;
 
 import org.zeromq.SocketType;
+import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 import org.zeromq.ZMQException;
 
@@ -18,11 +19,12 @@ public class CacheStore {
 
         Scanner in = new Scanner(System.in);
         try {
-            ZMQ.Context context = ZMQ.context(1);
+            ZContext context = new ZContext(1);
 
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);
             backendSocket.connect("tcp://localhost:5559");
+            System.out.println("launch and connect");
 
         } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
