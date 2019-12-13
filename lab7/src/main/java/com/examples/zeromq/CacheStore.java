@@ -83,10 +83,9 @@ public class CacheStore {
                 }
             }
 
-
-
         } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
+            ex.printStackTrace();
         }
     }
 }
