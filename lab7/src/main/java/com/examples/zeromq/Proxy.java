@@ -103,18 +103,23 @@ public class Proxy {
                 //System.out.println("GOT MSG ->" + message);
 
                 if (msg.getLast().toString().contains("Heartbleed")) {
-                if (!commutatorMap.containsKey(msg.getFirst())) {
-                    ZFrame data = msg.getLast();
-                    String[] fields = data.toString().split(DELIMITER);
-                    CacheCommutator tmp = new CacheCommutator(
-                            fields[1],
-                            fields[2],
-                            System.currentTimeMillis()
-                    );
-                    commutatorMap.put(msg.getFirst().duplicate(), tmp);
-                    System.out.println("New cache -> " + msg.getFirst() + " " + tmp.getLeftBound() + " " + tmp.getRightBound());
-                } else  {
-                    commutatorMap.get(msg.getFirst().duplicate()).setTime(System.currentTimeMillis());
+                    if (!commutatorMap.containsKey(msg.getFirst())) {
+                        ZFrame data = msg.getLast();
+                        String[] fields = data.toString().split(DELIMITER);
+                        CacheCommutator tmp = new CacheCommutator(
+                                fields[1],
+                                fields[2],
+                                System.currentTimeMillis()
+                        );
+                        commutatorMap.put(msg.getFirst().duplicate(), tmp);
+                        System.out.println("New cache -> " + msg.getFirst() + " " + tmp.getLeftBound() + " " + tmp.getRightBound());
+                    } else {
+                        commutatorMap.get(msg.getFirst().duplicate()).setTime(System.currentTimeMillis());
+                    }
+                }else {
+                    System.out.println("NO HEARTBEAT ->" + msg);
+                    msg.pop();
+                    msg.send(frontend);
                     if (data[0].equals(GET_COMMAND)) {
                         for (Map.Entry <ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                             if (map.getValue().isIntersect(data[1])) {
