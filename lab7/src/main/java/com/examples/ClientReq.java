@@ -6,7 +6,8 @@ import org.zeromq.ZMQ;
 
 import java.util.Scanner;
 
-
+//- Клиент. Подключается к центральному прокси.
+// Читает команды из консоли и отправляет их в прокси.
 public class ClientReq {
     public static void main(String[] args) {
 
