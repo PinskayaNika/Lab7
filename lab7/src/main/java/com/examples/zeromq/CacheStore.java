@@ -23,8 +23,12 @@ public class CacheStore {
 
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);
-            backendSocket.connect("tcp://localhost:5559");
-            //System.out.println("launch and connect");
+            backendSocket.connect("tcp://localhost:5560");
+            //System.out.println("launch and connect broker");
+
+            //Initialize poll set
+            ZMQ.Poller items = context.createPoller(1);
+            
 
         } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
