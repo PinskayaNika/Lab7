@@ -7,10 +7,11 @@ public class Proxy {
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
+        try {
         ZContext context = new ZContext();
         ZMQ.Socket socket = null;
 
-        try {
+
             socket.bind("tcp://localhost:5555");
             System.out.println("bind!");
             while (!Thread.currentThread().isInterrupted()) {
