@@ -4,7 +4,8 @@ import org.zeromq.SocketType;
 import org.zeromq.ZContext;
 import org.zeromq.ZMQ;
 
-import static java.lang.System.in;
+import java.util.Scanner;
+
 
 public class ClientReq {
     public static void main(String[] args) {
