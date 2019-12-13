@@ -1,9 +1,6 @@
 package com.examples.zeromq;
 
-import org.zeromq.SocketType;
-import org.zeromq.ZContext;
-import org.zeromq.ZMQ;
-import org.zeromq.ZMQException;
+import org.zeromq.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -49,7 +46,10 @@ public class CacheStore {
                 //apply state updates from main thread
                 items.poll(1);
                 if (System.currentTimeMillis() - time > 5000) {
-                    
+                    ZMsg messageTime = new ZMsg();
+                    messageTime.addLast(
+                            
+                    );
                 }
             }
 
