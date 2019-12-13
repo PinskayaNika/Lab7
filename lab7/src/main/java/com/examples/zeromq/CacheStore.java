@@ -28,6 +28,8 @@ public class CacheStore {
 
             //Initialize poll set
             ZMQ.Poller items = context.createPoller(1);
+            items.register(backendSocket, ZMQ.Poller.POLLIN);
+            
 
 
         } catch (ZMQException ex) {
