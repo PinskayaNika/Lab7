@@ -28,7 +28,7 @@ public class CacheStore {
 
             //Initialize poll set
             ZMQ.Poller items = context.createPoller(1);
-            
+
 
         } catch (ZMQException ex) {
             System.out.println(ERROR_MESSAGE);
