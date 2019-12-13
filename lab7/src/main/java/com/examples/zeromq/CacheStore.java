@@ -59,6 +59,8 @@ public class CacheStore {
                 }
 
                 if (items.pollin(0)) {
+                    ZMsg message = ZMsg.recvMsg(backendSocket);
+                    System.
                 }
             }
 
