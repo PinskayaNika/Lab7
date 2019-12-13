@@ -36,6 +36,7 @@ public class CacheStore {
 
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);
+            backendSocket.setHWM(0);
             backendSocket.connect("tcp://localhost:5560");
             //System.out.println("launch and connect broker");
 
@@ -48,7 +49,7 @@ public class CacheStore {
                 //apply state updates from main thread
                 items.poll(1);
                 if (System.currentTimeMillis() - time > 5000) {
-
+                    
                 }
             }
 
