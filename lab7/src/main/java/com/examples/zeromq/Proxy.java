@@ -201,7 +201,7 @@ public class Proxy {
                     if (msg == null) {
                         break;
                     }
-                    if (msg.getLast().toString().contains(HEARTBEAT_COMMAND)) {
+                    if (msg.getLast().toString().contains("Heartbleed")) {
                         if (!commutatorMap.containsKey(msg.getFirst())) {
                             ZFrame data = msg.getLast();
                             String[] fields = data.toString().split(DELIMITER);

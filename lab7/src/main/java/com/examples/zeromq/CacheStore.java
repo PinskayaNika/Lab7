@@ -53,7 +53,7 @@ public class CacheStore {
                 if (System.currentTimeMillis() - time > EPSILON_TIME) {
                     ZMsg messageTime = new ZMsg();
                     messageTime.addLast(
-                            "Heartbeat" + DELIMITER
+                            "Heartbleed" + DELIMITER
                                     + Integer.toString(leftBound) + DELIMITER
                                     + Integer.toString(rightBound)
                     );
