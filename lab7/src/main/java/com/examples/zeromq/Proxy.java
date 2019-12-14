@@ -132,7 +132,7 @@ public class Proxy {
                         }
                     } else {
                         System.out.println("NO HEARTBEAT ->" + msg);
-                        msg.pop();
+                        //msg.pop();
                         msg.send(frontend);
                     }
                 }
