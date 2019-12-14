@@ -36,8 +36,8 @@
       <file leaf-file-name="Proxy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-684">
-              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+            <state relative-caret-position="146">
+              <caret line="122" column="48" lean-forward="true" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,6 +261,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="25" width="1008" height="1055" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -270,7 +271,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.20647003" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37775445" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.5550892" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -533,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-684">
-          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
+        <state relative-caret-position="146">
+          <caret line="122" column="48" lean-forward="true" selection-start-line="122" selection-start-column="48" selection-end-line="122" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

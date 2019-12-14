@@ -63,36 +63,81 @@ public class Proxy {
                     time = System.currentTimeMillis();
 
                 }
-                if (items.pollin(0)) {        //FRONTEND_MESSAGE
-                    ZMsg message = ZMsg.recvMsg(frontend);
-                    if (message == null) {
+//                if (items.pollin(0)) {        //FRONTEND_MESSAGE
+//                    ZMsg message = ZMsg.recvMsg(frontend);
+//                    if (message == null) {
+//                        break;
+//                    }
+//                    System.out.println("GOT MSG ->" + message);
+//
+//                    if (commutatorMap.isEmpty()) {
+//
+//                        ZMsg errorMessage = new ZMsg();
+//                        //getErrorMessages(errorMessage, message, frontend);
+//                        errorMessage.add(message.getFirst());
+//                        errorMessage.add("");
+//                        errorMessage.add("NO CURRENT CACHE");
+//                        errorMessage.send(frontend);
+//                    } else {
+//                        String[] data = message.getLast().toString().split(DELIMITER);
+//                        if (data[0].equals(GET_COMMAND)) {
+//                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+//                                if (map.getValue().isIntersect(data[1])) {
+//                                    ZFrame cacheFrame = map.getKey().duplicate();
+//                                    message.addFirst(cacheFrame);
+//                                    message.send(backend);
+//                                }
+//                            }
+//                        } else {
+//                            if (data[0].equals(PUT_COMMAND)) {
+//                                for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+//                                    if (map.getValue().isIntersect(data[1])) {
+//                                        ZMsg tmp = message.duplicate();
+//                                        ZFrame cacheFrame = map.getKey().duplicate();
+//                                        tmp.addFirst(cacheFrame);
+//                                        System.out.println("PUT MSG ->" + tmp);
+//                                        tmp.send(backend);
+//                                    }
+//                                }
+//                            } else {
+//                                ZMsg errorMessage = new ZMsg();
+//                                //getErrorMessages(errorMessage, message, frontend);
+//                                errorMessage.add(message.getFirst());
+//                                errorMessage.add("");
+//                                errorMessage.add("ERROR MESSAGE");
+//                                errorMessage.send(frontend);
+//                            }
+//                        }
+//                    }
+//                }
+
+                if (items.pollin(0)) {
+                    ZMsg msg = ZMsg.recvMsg(frontend);
+                    if (msg == null) {
                         break;
                     }
-                    System.out.println("GOT MSG ->" + message);
-
+                    System.out.println("GOT MSG ->" + msg);
                     if (commutatorMap.isEmpty()) {
-
-                        ZMsg errorMessage = new ZMsg();
-                        //getErrorMessages(errorMessage, message, frontend);
-                        errorMessage.add(message.getFirst());
-                        errorMessage.add("");
-                        errorMessage.add("NO CURRENT CACHE");
-                        errorMessage.send(frontend);
+                        ZMsg errMsg = new ZMsg();
+                        errMsg.add(msg.getFirst());
+                        errMsg.add(EMPTY_FRAME);
+                        errMsg.add("NO CURRENT CACHE");
+                        errMsg.send(frontend);
                     } else {
-                        String[] data = message.getLast().toString().split(DELIMITER);
+                        String[] data = msg.getLast().toString().split(DELIMITER);
                         if (data[0].equals(GET_COMMAND)) {
                             for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                                 if (map.getValue().isIntersect(data[1])) {
                                     ZFrame cacheFrame = map.getKey().duplicate();
-                                    message.addFirst(cacheFrame);
-                                    message.send(backend);
+                                    msg.addFirst(cacheFrame);
+                                    msg.send(backend);
                                 }
                             }
                         } else {
                             if (data[0].equals(PUT_COMMAND)) {
                                 for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                                     if (map.getValue().isIntersect(data[1])) {
-                                        ZMsg tmp = message.duplicate();
+                                        ZMsg tmp = msg.duplicate();
                                         ZFrame cacheFrame = map.getKey().duplicate();
                                         tmp.addFirst(cacheFrame);
                                         System.out.println("PUT MSG ->" + tmp);
@@ -100,16 +145,17 @@ public class Proxy {
                                     }
                                 }
                             } else {
-                                ZMsg errorMessage = new ZMsg();
-                                //getErrorMessages(errorMessage, message, frontend);
-                                errorMessage.add(message.getFirst());
-                                errorMessage.add("");
-                                errorMessage.add("ERROR MESSAGE");
-                                errorMessage.send(frontend);
+
+                                ZMsg errMsg = new ZMsg();
+                                errMsg.add(msg.getFirst());
+                                errMsg.add(EMPTY_FRAME);
+                                errMsg.add("ERROR MESSAGE");
+                                errMsg.send(frontend);
                             }
                         }
                     }
                 }
+
 
                 if (items.pollin(1)) {        //BACKEND_MESSAGE
                     ZMsg msg = ZMsg.recvMsg(backend);
