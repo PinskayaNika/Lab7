@@ -49,20 +49,20 @@ public class Proxy {
             Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
             long time = System.currentTimeMillis();
 
-            while (!Thread.currentThread().isInterrupted()) {
-                items.poll(1);
-                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ) {
-                    for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
-                        Map.Entry<ZFrame, CacheCommutator> entry = it.next();
-
-                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
-                            System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
-                            it.remove();
-                        }
-                    }
-                    time = System.currentTimeMillis();
-
-                }
+//            while (!Thread.currentThread().isInterrupted()) {
+//                items.poll(1);
+//                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ) {
+//                    for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
+//                        Map.Entry<ZFrame, CacheCommutator> entry = it.next();
+//
+//                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
+//                            System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
+//                            it.remove();
+//                        }
+//                    }
+//                    time = System.currentTimeMillis();
+//
+//                }
 //                if (items.pollin(0)) {        //FRONTEND_MESSAGE
 //                    ZMsg message = ZMsg.recvMsg(frontend);
 //                    if (message == null) {
@@ -110,7 +110,18 @@ public class Proxy {
 //                        }
 //                    }
 //                }
-
+                while (!Thread.currentThread().isInterrupted()) {
+                items.poll(1);
+                if(!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ){
+                    for(Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ){
+                        Map.Entry<ZFrame, CacheCommutator> entry = it.next();
+                        if(Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2){
+                            System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
+                            it.remove();
+                        }
+                    }
+                    time = System.currentTimeMillis();
+                }
                 if (items.pollin(0)) {
                     ZMsg msg = ZMsg.recvMsg(frontend);
                     if (msg == null) {
