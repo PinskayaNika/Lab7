@@ -36,8 +36,8 @@
       <file leaf-file-name="Proxy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1453">
-              <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
+            <state relative-caret-position="427">
+              <caret line="198" column="25" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
-              <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+              <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,6 +261,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -494,16 +495,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="52" column="68" lean-forward="true" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheCommutator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-57">
@@ -531,10 +522,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/CacheStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1453">
-          <caret line="107" column="53" selection-start-line="107" selection-start-column="53" selection-end-line="107" selection-end-column="53" />
+        <state relative-caret-position="427">
+          <caret line="198" column="25" selection-start-line="198" selection-start-column="25" selection-end-line="198" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
