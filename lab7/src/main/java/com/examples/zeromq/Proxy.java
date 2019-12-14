@@ -51,11 +51,11 @@ public class Proxy {
 
             while (!Thread.currentThread().isInterrupted()) {
                 items.poll(1);
-                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME * 4) {
+                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ) {
                     for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
                         Map.Entry<ZFrame, CacheCommutator> entry = it.next();
 
-                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 4) {
+                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME ) {
                             System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
                             it.remove();
                         }

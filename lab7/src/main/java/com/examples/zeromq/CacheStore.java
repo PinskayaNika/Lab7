@@ -50,7 +50,7 @@ public class CacheStore {
 
                 //apply state updates from main thread
                 items.poll(1);
-                if (System.currentTimeMillis() - time > EPSILON_TIME * 4) {
+                if (System.currentTimeMillis() - time > EPSILON_TIME) {
                     ZMsg messageTime = new ZMsg();
                     messageTime.addLast(
                             "Heartbeat" + DELIMITER
