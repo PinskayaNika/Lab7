@@ -222,12 +222,12 @@ public class Proxy {
 //                    }
 //                }
 //            }
-//        } catch (ZMQException ex) {
-//            System.out.println("ERROR_MESSAGE");
-//            ex.printStackTrace();
-////            context.destroySocket(socket);
-////            context.destroy();
-//        }
+        } catch (ZMQException ex) {
+            System.out.println("ERROR_MESSAGE");
+            ex.printStackTrace();
+//            context.destroySocket(socket);
+//            context.destroy();
+        }
 
 
 
