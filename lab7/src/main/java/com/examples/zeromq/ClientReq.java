@@ -23,7 +23,7 @@ public class ClientReq {
             System.out.println("connect");
             ZMQ.Socket socket = context.createSocket(SocketType.REQ);
             socket.setHWM(0);
-            socket.connect("tcp://localhost:5555");
+            socket.connect("tcp://localhost:5559");
 
             Scanner in = new Scanner(System.in);
 
