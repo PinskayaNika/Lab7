@@ -49,7 +49,7 @@ public class Proxy {
 
             while (!Thread.currentThread().isInterrupted()) {
                 items.poll(1);
-                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME * 2) {
+                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME * 4) {
                     for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
                         Map.Entry<ZFrame, CacheCommutator> entry = it.next();
 
