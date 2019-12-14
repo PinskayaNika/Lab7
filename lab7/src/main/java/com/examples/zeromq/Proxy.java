@@ -64,7 +64,7 @@ public class Proxy {
 
                 }
                 if (items.pollin(0)) {        //FRONTEND_MESSAGE
-                    ZMsg message = ZMsg.recvMsg(backend);
+                    ZMsg message = ZMsg.recvMsg(frontend);
                     if (message == null) {
                         break;
                     }
@@ -112,7 +112,7 @@ public class Proxy {
                 }
 
                 if (items.pollin(1)) {        //BACKEND_MESSAGE
-                    ZMsg msg = ZMsg.recvMsg(frontend);
+                    ZMsg msg = ZMsg.recvMsg(backend);
                     if (msg == null) {
                         break;
                     }
@@ -134,7 +134,7 @@ public class Proxy {
                         }
                     } else {
                         System.out.println("NO HEARTBEAT ->" + msg);
-                        //msg.pop();
+                        msg.pop();
                         msg.send(frontend);
                     }
                 }
