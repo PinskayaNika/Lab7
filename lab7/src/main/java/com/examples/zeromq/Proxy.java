@@ -49,106 +49,50 @@ public class Proxy {
             Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
             long time = System.currentTimeMillis();
 
-//            while (!Thread.currentThread().isInterrupted()) {
-//                items.poll(1);
-//                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ) {
-//                    for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
-//                        Map.Entry<ZFrame, CacheCommutator> entry = it.next();
-//
-//                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
-//                            System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
-//                            it.remove();
-//                        }
-//                    }
-//                    time = System.currentTimeMillis();
-//
-//                }
-//                if (items.pollin(0)) {        //FRONTEND_MESSAGE
-//                    ZMsg message = ZMsg.recvMsg(frontend);
-//                    if (message == null) {
-//                        break;
-//                    }
-//                    System.out.println("GOT MSG ->" + message);
-//
-//                    if (commutatorMap.isEmpty()) {
-//
-//                        ZMsg errorMessage = new ZMsg();
-//                        //getErrorMessages(errorMessage, message, frontend);
-//                        errorMessage.add(message.getFirst());
-//                        errorMessage.add("");
-//                        errorMessage.add("NO CURRENT CACHE");
-//                        errorMessage.send(frontend);
-//                    } else {
-//                        String[] data = message.getLast().toString().split(DELIMITER);
-//                        if (data[0].equals(GET_COMMAND)) {
-//                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-//                                if (map.getValue().isIntersect(data[1])) {
-//                                    ZFrame cacheFrame = map.getKey().duplicate();
-//                                    message.addFirst(cacheFrame);
-//                                    message.send(backend);
-//                                }
-//                            }
-//                        } else {
-//                            if (data[0].equals(PUT_COMMAND)) {
-//                                for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-//                                    if (map.getValue().isIntersect(data[1])) {
-//                                        ZMsg tmp = message.duplicate();
-//                                        ZFrame cacheFrame = map.getKey().duplicate();
-//                                        tmp.addFirst(cacheFrame);
-//                                        System.out.println("PUT MSG ->" + tmp);
-//                                        tmp.send(backend);
-//                                    }
-//                                }
-//                            } else {
-//                                ZMsg errorMessage = new ZMsg();
-//                                //getErrorMessages(errorMessage, message, frontend);
-//                                errorMessage.add(message.getFirst());
-//                                errorMessage.add("");
-//                                errorMessage.add("ERROR MESSAGE");
-//                                errorMessage.send(frontend);
-//                            }
-//                        }
-//                    }
-//                }
-                while (!Thread.currentThread().isInterrupted()) {
+            while (!Thread.currentThread().isInterrupted()) {
                 items.poll(1);
-                if(!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ){
-                    for(Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ){
+                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME ) {
+                    for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
                         Map.Entry<ZFrame, CacheCommutator> entry = it.next();
-                        if(Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2){
+
+                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
                             System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
                             it.remove();
                         }
                     }
                     time = System.currentTimeMillis();
+
                 }
-                if (items.pollin(0)) {
-                    ZMsg msg = ZMsg.recvMsg(frontend);
-                    if (msg == null) {
+                if (items.pollin(0)) {        //FRONTEND_MESSAGE
+                    ZMsg message = ZMsg.recvMsg(backend);
+                    if (message == null) {
                         break;
                     }
-                    System.out.println("GOT MSG ->" + msg);
+                    System.out.println("GOT MSG ->" + message);
+
                     if (commutatorMap.isEmpty()) {
-                        ZMsg errMsg = new ZMsg();
-                        errMsg.add(msg.getFirst());
-                        errMsg.add(EMPTY_FRAME);
-                        errMsg.add("NO CURRENT CACHE");
-                        errMsg.send(frontend);
+
+                        ZMsg errorMessage = new ZMsg();
+                        //getErrorMessages(errorMessage, message, frontend);
+                        errorMessage.add(message.getFirst());
+                        errorMessage.add("");
+                        errorMessage.add("NO CURRENT CACHE");
+                        errorMessage.send(frontend);
                     } else {
-                        String[] data = msg.getLast().toString().split(DELIMITER);
+                        String[] data = message.getLast().toString().split(DELIMITER);
                         if (data[0].equals(GET_COMMAND)) {
                             for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                                 if (map.getValue().isIntersect(data[1])) {
                                     ZFrame cacheFrame = map.getKey().duplicate();
-                                    msg.addFirst(cacheFrame);
-                                    msg.send(backend);
+                                    message.addFirst(cacheFrame);
+                                    message.send(backend);
                                 }
                             }
                         } else {
                             if (data[0].equals(PUT_COMMAND)) {
                                 for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
                                     if (map.getValue().isIntersect(data[1])) {
-                                        ZMsg tmp = msg.duplicate();
+                                        ZMsg tmp = message.duplicate();
                                         ZFrame cacheFrame = map.getKey().duplicate();
                                         tmp.addFirst(cacheFrame);
                                         System.out.println("PUT MSG ->" + tmp);
@@ -156,26 +100,25 @@ public class Proxy {
                                     }
                                 }
                             } else {
-
-                                ZMsg errMsg = new ZMsg();
-                                errMsg.add(msg.getFirst());
-                                errMsg.add(EMPTY_FRAME);
-                                errMsg.add("ERROR MESSAGE");
-                                errMsg.send(frontend);
+                                ZMsg errorMessage = new ZMsg();
+                                //getErrorMessages(errorMessage, message, frontend);
+                                errorMessage.add(message.getFirst());
+                                errorMessage.add("");
+                                errorMessage.add("ERROR MESSAGE");
+                                errorMessage.send(frontend);
                             }
                         }
                     }
                 }
 
-
                 if (items.pollin(1)) {        //BACKEND_MESSAGE
-                    ZMsg msg = ZMsg.recvMsg(backend);
+                    ZMsg msg = ZMsg.recvMsg(frontend);
                     if (msg == null) {
                         break;
                     }
                     //System.out.println("GOT MSG ->" + message);
 
-                    if (msg.getLast().toString().contains("Heartbleet")) {
+                    if (msg.getLast().toString().contains("Heartbleed")) {
                         if (!commutatorMap.containsKey(msg.getFirst())) {
                             ZFrame data = msg.getLast();
                             String[] fields = data.toString().split(DELIMITER);
@@ -191,7 +134,7 @@ public class Proxy {
                         }
                     } else {
                         System.out.println("NO HEARTBEAT ->" + msg);
-                        msg.pop();
+                        //msg.pop();
                         msg.send(frontend);
                     }
                 }
