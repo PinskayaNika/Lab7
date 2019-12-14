@@ -217,7 +217,7 @@ public class Proxy {
                         }
                     } else {
                         System.out.println("NO HEARTHBEAT ->" + msg);
-                        msg.pop();
+                        //msg.pop();
                         msg.send(frontend);
                     }
                 }
