@@ -28,7 +28,7 @@ public class Proxy {
             frontend.setHWM(0);
             backend.setHWM(0);
             frontend.bind("tcp://localhost:5555");
-            backend.bind("tcp://localhost:5560");
+            backend.bind("tcp://localhost:5561");
 
             //Initialize poll set
             ZMQ.Poller items = context.createPoller(2);

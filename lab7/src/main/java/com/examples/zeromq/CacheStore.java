@@ -39,7 +39,7 @@ public class CacheStore {
             //Socket to talk to server
             ZMQ.Socket backendSocket = context.createSocket(SocketType.DEALER);
             backendSocket.setHWM(0);
-            backendSocket.connect("tcp://localhost:5560");
+            backendSocket.connect("tcp://localhost:5561");
             //System.out.println("launch and connect broker");
 
             //Initialize poll set
