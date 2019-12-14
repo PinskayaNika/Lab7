@@ -17,6 +17,14 @@ public class Proxy {
     private static final String FRONTEND_SOCKET = "tcp://localhost:5560";
     private static final String ERROR_MESSAGE = "There was an error with a proxy. Please retry.";
 
+    private static void  getErrorMessages(ZMsg errorMessage, ZMsg message, ZMQ.Socket frontend) {
+        //errorMessage = new ZMsg();
+        errorMessage.add(message.getFirst());
+        errorMessage.add("");
+        errorMessage.add("ERROR MESSAGE");
+        errorMessage.send(frontend);
+    }
+
     public static void main(String[] args) {
 
 //    Создаем ZContext или ZMQ.Context
@@ -60,11 +68,13 @@ public class Proxy {
                     //System.out.println("GOT MSG ->" + message);
 
                     if (commutatorMap.isEmpty()) {
+
                         ZMsg errorMessage = new ZMsg();
-                        errorMessage.add(message.getFirst());
-                        errorMessage.add("");
-                        errorMessage.add("NO CURRENT CACHE");
-                        errorMessage.send(frontend);
+                        getErrorMessages(errorMessage, message, frontend);
+//                        errorMessage.add(message.getFirst());
+//                        errorMessage.add("");
+//                        errorMessage.add("NO CURRENT CACHE");
+//                        errorMessage.send(frontend);
                     } else {
                         String[] data = message.getLast().toString().split(DELIMITER);
                         if (data[0].equals(GET_COMMAND)) {
@@ -88,10 +98,11 @@ public class Proxy {
                                 }
                             } else {
                                 ZMsg errorMessage = new ZMsg();
-                                errorMessage.add(message.getFirst());
-                                errorMessage.add("");
-                                errorMessage.add("ERROR MESSAGE");
-                                errorMessage.send(frontend);
+                                getErrorMessages(errorMessage, message, frontend);
+//                                errorMessage.add(message.getFirst());
+//                                errorMessage.add("");
+//                                errorMessage.add("ERROR MESSAGE");
+//                                errorMessage.send(frontend);
                             }
                         }
                     }
@@ -131,6 +142,9 @@ public class Proxy {
 //            context.destroySocket(socket);
 //            context.destroy();
         }
+
+
+
 // С помощью методов Context.socket(<тип сокета>) или ZContext.createSocket(<тип сокета>) создаем сокет
 //    В бесконечном цикле читаем из сокета данные и отвечаем или посылаем данные в другие сокеты
 //    Посылать можно набор байтов, строку и сообщение Zmsg(набор фреймов)
