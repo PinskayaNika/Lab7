@@ -17,6 +17,12 @@ public class Proxy {
     private static final String FRONTEND_SOCKET = "tcp://localhost:5560";
     private static final String ERROR_MESSAGE = "There was an error with a proxy. Please retry.";
 
+    static ZMQ.Poller items;
+    static ZMQ.Socket frontend;
+    static ZMQ.Socket backend;
+    static long time;
+    static Map<ZFrame, CacheCommutator> commutatorMap;
+
 
     private static void  getErrorMessages(ZMsg errorMessage, ZMsg message, ZMQ.Socket frontend) {
         //errorMessage = new ZMsg();
@@ -25,6 +31,8 @@ public class Proxy {
         errorMessage.add("ERROR MESSAGE");
         errorMessage.send(frontend);
     }
+
+
 
     public static void main(String[] args) {
 
@@ -40,103 +48,14 @@ public class Proxy {
             backend.bind("tcp://localhost:5561");
 
             //Initialize poll set
-            ZMQ.Poller items = context.createPoller(2);
+            items = context.createPoller(2);
             items.register(frontend, ZMQ.Poller.POLLIN);
             items.register(backend, ZMQ.Poller.POLLIN);
 
-            Map<ZFrame, CacheCommutator> commutatorMap = new HashMap<>();
-            long time = System.currentTimeMillis();
+            commutatorMap = new HashMap<>();
+            time = System.currentTimeMillis();
 
-            while (!Thread.currentThread().isInterrupted()) {
-                items.poll(1);
-                if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME * 4) {
-                    for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
-                        Map.Entry<ZFrame, CacheCommutator> entry = it.next();
-
-                        if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
-                            System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
-                            it.remove();
-                        }
-                    }
-                    time = System.currentTimeMillis();
-
-                }
-                if (items.pollin(0)) {        //FRONTEND_MESSAGE
-                    ZMsg message = ZMsg.recvMsg(backend);
-                    if (message == null) {
-                        break;
-                    }
-                    //System.out.println("GOT MSG ->" + message);
-
-                    if (commutatorMap.isEmpty()) {
-
-                        ZMsg errorMessage = new ZMsg();
-                        getErrorMessages(errorMessage, message, frontend);
-//                        errorMessage.add(message.getFirst());
-//                        errorMessage.add("");
-//                        errorMessage.add("NO CURRENT CACHE");
-//                        errorMessage.send(frontend);
-                    } else {
-                        String[] data = message.getLast().toString().split(DELIMITER);
-                        if (data[0].equals(GET_COMMAND)) {
-                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-                                if (map.getValue().isIntersect(data[1])) {
-                                    ZFrame cacheFrame = map.getKey().duplicate();
-                                    message.addFirst(cacheFrame);
-                                    message.send(backend);
-                                }
-                            }
-                        } else {
-                            if (data[0].equals(PUT_COMMAND)) {
-                                for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
-                                    if (map.getValue().isIntersect(data[1])) {
-                                        ZMsg tmp = message.duplicate();
-                                        ZFrame cacheFrame = map.getKey().duplicate();
-                                        tmp.addFirst(cacheFrame);
-                                        System.out.println("PUT MSG ->" + tmp);
-                                        tmp.send(backend);
-                                    }
-                                }
-                            } else {
-                                ZMsg errorMessage = new ZMsg();
-                                getErrorMessages(errorMessage, message, frontend);
-//                                errorMessage.add(message.getFirst());
-//                                errorMessage.add("");
-//                                errorMessage.add("ERROR MESSAGE");
-//                                errorMessage.send(frontend);
-                            }
-                        }
-                    }
-                }
-
-                if (items.pollin(1)) {        //BACKEND_MESSAGE
-                    ZMsg msg = ZMsg.recvMsg(frontend);
-                    if (msg == null) {
-                        break;
-                    }
-                    //System.out.println("GOT MSG ->" + message);
-
-                    if (msg.getLast().toString().contains("Heartbeat")) {
-                        if (!commutatorMap.containsKey(msg.getFirst())) {
-                            ZFrame data = msg.getLast();
-                            String[] fields = data.toString().split(DELIMITER);
-                            CacheCommutator tmp = new CacheCommutator(
-                                    fields[1],
-                                    fields[2],
-                                    System.currentTimeMillis()
-                            );
-                            commutatorMap.put(msg.getFirst().duplicate(), tmp);
-                            System.out.println("New cache -> " + msg.getFirst() + " " + tmp.getLeftBound() + " " + tmp.getRightBound());
-                        } else {
-                            commutatorMap.get(msg.getFirst().duplicate()).setTime(System.currentTimeMillis());
-                        }
-                    } else {
-                        System.out.println("NO HEARTBEAT ->" + msg);
-                        //msg.pop();
-                        msg.send(frontend);
-                    }
-                }
-            }
+            handle();
         } catch (ZMQException ex) {
             System.out.println("ERROR_MESSAGE");
             ex.printStackTrace();
@@ -152,5 +71,98 @@ public class Proxy {
 //    Массив и строка посылаются методами сокета sendXXX, принимаются методами сокетов recvXXX
 //    ZMsg отправляется и своими методами ZMsg.send и ZMsg.recvMsg
 
+    }
+
+    public static void handle() {
+        while (!Thread.currentThread().isInterrupted()) {
+            items.poll(1);
+            if (!commutatorMap.isEmpty() && System.currentTimeMillis() - time > EPSILON_TIME * 4) {
+                for (Iterator<Map.Entry<ZFrame, CacheCommutator>> it = commutatorMap.entrySet().iterator(); it.hasNext(); ) {
+                    Map.Entry<ZFrame, CacheCommutator> entry = it.next();
+
+                    if (Math.abs(entry.getValue().getTime() - time) > EPSILON_TIME * 2) {
+                        System.out.println("THIS CACHE WAS DELETED -> " + entry.getKey());
+                        it.remove();
+                    }
+                }
+                time = System.currentTimeMillis();
+
+            }
+            if (items.pollin(0)) {        //FRONTEND_MESSAGE
+                ZMsg message = ZMsg.recvMsg(backend);
+                if (message == null) {
+                    break;
+                }
+                //System.out.println("GOT MSG ->" + message);
+
+                if (commutatorMap.isEmpty()) {
+
+                    ZMsg errorMessage = new ZMsg();
+                    getErrorMessages(errorMessage, message, frontend);
+//                        errorMessage.add(message.getFirst());
+//                        errorMessage.add("");
+//                        errorMessage.add("NO CURRENT CACHE");
+//                        errorMessage.send(frontend);
+                } else {
+                    String[] data = message.getLast().toString().split(DELIMITER);
+                    if (data[0].equals(GET_COMMAND)) {
+                        for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+                            if (map.getValue().isIntersect(data[1])) {
+                                ZFrame cacheFrame = map.getKey().duplicate();
+                                message.addFirst(cacheFrame);
+                                message.send(backend);
+                            }
+                        }
+                    } else {
+                        if (data[0].equals(PUT_COMMAND)) {
+                            for (Map.Entry<ZFrame, CacheCommutator> map : commutatorMap.entrySet()) {
+                                if (map.getValue().isIntersect(data[1])) {
+                                    ZMsg tmp = message.duplicate();
+                                    ZFrame cacheFrame = map.getKey().duplicate();
+                                    tmp.addFirst(cacheFrame);
+                                    System.out.println("PUT MSG ->" + tmp);
+                                    tmp.send(backend);
+                                }
+                            }
+                        } else {
+                            ZMsg errorMessage = new ZMsg();
+                            getErrorMessages(errorMessage, message, frontend);
+//                                errorMessage.add(message.getFirst());
+//                                errorMessage.add("");
+//                                errorMessage.add("ERROR MESSAGE");
+//                                errorMessage.send(frontend);
+                        }
+                    }
+                }
+            }
+
+            if (items.pollin(1)) {        //BACKEND_MESSAGE
+                ZMsg msg = ZMsg.recvMsg(frontend);
+                if (msg == null) {
+                    break;
+                }
+                //System.out.println("GOT MSG ->" + message);
+
+                if (msg.getLast().toString().contains("Heartbeat")) {
+                    if (!commutatorMap.containsKey(msg.getFirst())) {
+                        ZFrame data = msg.getLast();
+                        String[] fields = data.toString().split(DELIMITER);
+                        CacheCommutator tmp = new CacheCommutator(
+                                fields[1],
+                                fields[2],
+                                System.currentTimeMillis()
+                        );
+                        commutatorMap.put(msg.getFirst().duplicate(), tmp);
+                        System.out.println("New cache -> " + msg.getFirst() + " " + tmp.getLeftBound() + " " + tmp.getRightBound());
+                    } else {
+                        commutatorMap.get(msg.getFirst().duplicate()).setTime(System.currentTimeMillis());
+                    }
+                } else {
+                    System.out.println("NO HEARTBEAT ->" + msg);
+                    //msg.pop();
+                    msg.send(frontend);
+                }
+            }
+        }
     }
 }
