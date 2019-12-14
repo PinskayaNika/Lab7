@@ -68,7 +68,7 @@ public class Proxy {
                     if (message == null) {
                         break;
                     }
-                    //System.out.println("GOT MSG ->" + message);
+                    System.out.println("GOT MSG ->" + message);
 
                     if (commutatorMap.isEmpty()) {
 
@@ -112,7 +112,7 @@ public class Proxy {
                 }
 
                 if (items.pollin(1)) {        //BACKEND_MESSAGE
-                    ZMsg msg = ZMsg.recvMsg(frontend);
+                    ZMsg msg = ZMsg.recvMsg(backend);
                     if (msg == null) {
                         break;
                     }

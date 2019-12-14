@@ -36,8 +36,8 @@
       <file leaf-file-name="Proxy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="224" column="6" selection-start-line="224" selection-start-column="6" selection-end-line="229" selection-end-column="9" />
+            <state relative-caret-position="171">
+              <caret line="114" column="51" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -129,10 +129,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="197" />
-    <option name="y" value="140" />
-    <option name="width" value="1495" />
-    <option name="height" value="924" />
+    <option name="x" value="-11" />
+    <option name="y" value="25" />
+    <option name="width" value="1008" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -260,7 +260,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="197" y="140" width="1495" height="924" extended-state="0" />
+    <frame x="-11" y="25" width="1008" height="1055" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -270,7 +271,7 @@
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.20647003" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36861312" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.37775445" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
@@ -533,8 +534,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="224" column="6" selection-start-line="224" selection-start-column="6" selection-end-line="229" selection-end-column="9" />
+        <state relative-caret-position="171">
+          <caret line="114" column="51" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
