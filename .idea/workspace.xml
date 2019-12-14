@@ -127,10 +127,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="198" />
-    <option name="y" value="140" />
-    <option name="width" value="1503" />
-    <option name="height" value="929" />
+    <option name="x" value="1004" />
+    <option name="y" value="25" />
+    <option name="width" value="916" />
+    <option name="height" value="1055" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -208,7 +208,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.Proxy">
     <configuration name="CacheStore" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.examples.zeromq.CacheStore" />
       <module name="lab7" />
