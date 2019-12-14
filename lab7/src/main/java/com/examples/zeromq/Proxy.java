@@ -17,6 +17,7 @@ public class Proxy {
     private static final String FRONTEND_SOCKET = "tcp://localhost:5560";
     private static final String ERROR_MESSAGE = "There was an error with a proxy. Please retry.";
 
+
     private static void  getErrorMessages(ZMsg errorMessage, ZMsg message, ZMQ.Socket frontend) {
         //errorMessage = new ZMsg();
         errorMessage.add(message.getFirst());
