@@ -64,7 +64,7 @@ public class Proxy {
 
                 }
                 if (items.pollin(0)) {        //FRONTEND_MESSAGE
-                    ZMsg message = ZMsg.recvMsg(backend);
+                    ZMsg message = ZMsg.recvMsg(frontend);
                     if (message == null) {
                         break;
                     }

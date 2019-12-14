@@ -36,8 +36,8 @@
       <file leaf-file-name="Proxy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="114" column="51" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
+            <state relative-caret-position="-684">
+              <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -261,7 +261,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="25" width="1008" height="1055" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -534,8 +533,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab7/src/main/java/com/examples/zeromq/Proxy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="114" column="51" selection-start-line="114" selection-start-column="51" selection-end-line="114" selection-end-column="51" />
+        <state relative-caret-position="-684">
+          <caret line="66" column="56" selection-start-line="66" selection-start-column="56" selection-end-line="66" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
